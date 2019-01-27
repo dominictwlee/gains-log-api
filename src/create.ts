@@ -1,6 +1,8 @@
 import { APIGatewayProxyEvent } from 'aws-lambda';
 import * as AWS from 'aws-sdk';
+import * as dynamoDbLib from './libs/dyamoDbLib';
 import uuid from 'uuid';
+import { success, failure } from './libs/responseLib';
 
 const dynamoDb = new AWS.DynamoDB.DocumentClient();
 
@@ -17,30 +19,11 @@ export async function main(event: APIGatewayProxyEvent) {
     },
   };
 
-  dynamoDb.put(params, (error, resData) => {
-    const headers = {
-      'Access-Control-Allow-Origin': '*',
-      'Access-Control-Allow-Credentials': true,
-    };
-
-    if (error) {
-      const errorResponse = {
-        statusCode: 500,
-        headers,
-        body: JSON.stringify({ status: false }),
-      };
-
-      return errorResponse;
-    }
-
-    console.log(resData);
-
-    const response = {
-      statusCode: 200,
-      headers,
-      body: JSON.stringify(params.Item),
-    };
-
-    return response;
-  });
+  try {
+    await dynamoDbLib.call('put', params);
+    return success(params.Item);
+  } catch (e) {
+    console.log(e);
+    return failure({ status: false });
+  }
 }
