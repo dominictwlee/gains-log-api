@@ -1,10 +1,7 @@
 import { APIGatewayProxyEvent } from 'aws-lambda';
-import * as AWS from 'aws-sdk';
-import * as dynamoDbLib from './libs/dyamoDbLib';
 import uuid from 'uuid';
-import { success, failure } from './libs/responseLib';
-
-const dynamoDb = new AWS.DynamoDB.DocumentClient();
+import * as dynamoDbLib from './libs/dyamoDbLib';
+import { failure, success } from './libs/responseLib';
 
 export async function main(event: APIGatewayProxyEvent) {
   const data = JSON.parse(event.body);
