@@ -1,7 +1,0 @@
-{
-    "extends": ["standard", "plugin:jest/recommended", "prettier"],
-    "env": {
-        "jest": true
-    }
-    
-}
