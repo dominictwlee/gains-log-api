@@ -1,4 +1,9 @@
-export const hello = async (event, context) => {
+import { APIGatewayProxyEvent, APIGatewayEventRequestContext } from 'aws-lambda';
+
+export const hello = async (
+  event: APIGatewayProxyEvent,
+  context: APIGatewayEventRequestContext
+) => {
   return {
     statusCode: 200,
     body: JSON.stringify({

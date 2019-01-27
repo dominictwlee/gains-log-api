@@ -2,8 +2,14 @@ const slsw = require('serverless-webpack');
 const nodeExternals = require('webpack-node-externals');
 const path = require('path');
 
+const entries = {};
+
+Object.keys(slsw.lib.entries).forEach(
+  key => (entries[key] = ['./source-map-install.js', slsw.lib.entries[key]])
+);
+
 module.exports = {
-  entry: slsw.lib.entries,
+  entry: entries,
   resolve: {
     extensions: ['.js', '.jsx', '.json', '.ts', '.tsx'],
   },
@@ -29,14 +35,6 @@ module.exports = {
   },
   // Run babel on all .js files and skip those in node_modules
   module: {
-    rules: [
-      {
-        test: /\.js$/,
-        loader: 'babel-loader',
-        include: __dirname,
-        exclude: /node_modules/,
-      },
-      { test: /\.tsx?$/, loader: 'ts-loader', include: __dirname, exclude: /node_modules/ },
-    ],
+    rules: [{ test: /\.tsx?$/, loader: 'ts-loader', include: __dirname, exclude: /node_modules/ }],
   },
 };
