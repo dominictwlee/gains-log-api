@@ -24,11 +24,24 @@ provider:
   # commit your env.yml.
   #
   #environment: ${file(env.yml):${self:provider.stage}}
+  iamRoleStatements:
+    - Effect: Allow
+      Action:
+        - dynamodb:DescribeTable
+        - dynamodb:Query
+        - dynamodb:Scan
+        - dynamodb:GetItem
+        - dynamodb:PutItem
+        - dynamodb:UpdateItem
+        - dynamodb:DeleteItem
+      Resource: 'arn:aws:dynamodb:eu-west-2:828782788777:*'
 
 functions:
-  hello:
-    handler: handler.hello
+  create:
+    handler: src/create.main
     events:
       - http:
-          path: hello
-          method: get
+        path: notes
+        method: post
+        cors: true
+        authorizer: aws_iam
