@@ -2,7 +2,11 @@ import * as AWS from 'aws-sdk';
 
 interface IDynamoDBParams {
   TableName: string;
-  Item: object;
+  Item?: object;
+  Key?: {
+    userId: string;
+    routineId: string;
+  };
 }
 
 export function call(action: string, params: IDynamoDBParams): Promise<object> {
