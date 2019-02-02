@@ -11,7 +11,7 @@ export async function main(event: APIGatewayProxyEvent) {
     Item: {
       userId: event.requestContext.identity.cognitoIdentityId,
       routineId: uuid.v4(),
-      content: data.content,
+      exercises: data,
       createdAt: Date.now(),
     },
   };

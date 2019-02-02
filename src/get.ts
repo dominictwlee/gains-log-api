@@ -1,6 +1,7 @@
 import { APIGatewayProxyEvent } from 'aws-lambda';
 import * as dynamoDbLib from './libs/dyamoDbLib';
 import { failure, success } from './libs/responseLib';
+import { ExerciseRoutineItem } from './types/ExerciseRoutineItem';
 
 export async function main(event: APIGatewayProxyEvent) {
   const params = {
@@ -12,7 +13,7 @@ export async function main(event: APIGatewayProxyEvent) {
   };
 
   try {
-    const result: any = await dynamoDbLib.call('get', params);
+    const result: { Item?: ExerciseRoutineItem } = await dynamoDbLib.call('get', params);
     if (result.Item) {
       return success(result.Item);
     } else {
