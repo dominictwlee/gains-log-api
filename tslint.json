@@ -3,7 +3,10 @@
   "extends": ["tslint:latest", "tslint-config-prettier"],
   "jsRules": {},
   "rules": {
-    "object-literal-sort-keys": false
+    "object-literal-sort-keys": false,
+    "no-console": false,
+    "ordered-imports": false,
+    "interface-over-type-literal": false
   },
   "rulesDirectory": []
 }

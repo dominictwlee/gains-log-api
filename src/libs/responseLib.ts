@@ -1,12 +1,12 @@
-export function success(body: object) {
+export function success(body: any) {
   return createResponse(200, body);
 }
 
-export function failure(body: object) {
+export function failure(body: any) {
   return createResponse(500, body);
 }
 
-function createResponse(statusCode: number, body: object) {
+function createResponse(statusCode: number, body: any) {
   return {
     statusCode,
     header: {

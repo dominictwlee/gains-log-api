@@ -1,0 +1,22 @@
+{
+  "hinge": {
+    "name": "Kettlebell Swing",
+    "reps": 10,
+    "sets": 3
+  },
+  "pull": {
+    "name": "Pull Up",
+    "reps": 8,
+    "sets": 3
+  },
+  "push": {
+    "name": "Push Up",
+    "reps": 8,
+    "sets": 3
+  },
+  "squat": {
+    "name": "Barbell Back Squat",
+    "reps": 6,
+    "sets": 3
+  }
+}
