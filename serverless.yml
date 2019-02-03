@@ -61,3 +61,11 @@ functions:
         method: get
         cors: true
         authorizer: aws_iam
+  update:
+    handler: src/update.main
+    events:
+      - http:
+        path: routines/{id}
+        method: put
+        cors: true
+        authorizer: aws_iam

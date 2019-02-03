@@ -1,0 +1,11 @@
+{
+  "body": "{\"hinge\":{\"name\":\"Romanian Deadlift\",\"reps\":5,\"sets\":5},\"pull\":{\"name\":\"Barbell Row\",\"reps\":8,\"sets\":3},\"push\":{\"name\":\"Bench Press\",\"reps\":6,\"sets\":4},\"squat\":{\"name\":\"Barbell Front Squat\",\"reps\":5,\"sets\":3}}",
+  "pathParameters": {
+    "id": "3c0fe6b4-498f-4051-a67a-51f082c87237"
+  },
+  "requestContext": {
+    "identity": {
+      "cognitoIdentityId": "USER-SUB-1234"
+    }
+  }
+}
