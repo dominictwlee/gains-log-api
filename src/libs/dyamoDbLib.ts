@@ -7,6 +7,9 @@ interface IDynamoDBParams {
     userId: string;
     routineId: string;
   };
+  UpdateExpression?: string;
+  KeyConditionExpression?: string;
+  ReturnValues?: string;
 }
 
 export function call(action: string, params: IDynamoDBParams): Promise<object> {

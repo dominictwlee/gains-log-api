@@ -1,5 +1,5 @@
-import { APIGatewayProxyEvent } from 'aws-lambda';
 import * as dynamoDbLib from './libs/dyamoDbLib';
+import { APIGatewayProxyEvent } from 'aws-lambda';
 import { failure, success } from './libs/responseLib';
 import { ExerciseRoutineItem } from './types/ExerciseRoutineItem';
 
