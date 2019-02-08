@@ -69,3 +69,11 @@ functions:
         method: put
         cors: true
         authorizer: aws_iam
+  delete:
+    handler: src/delete.main
+    events:
+      - http:
+        path: routines/{id}
+        method: delete
+        cors: true
+        authorizer: aws_iam

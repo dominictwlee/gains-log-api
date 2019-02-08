@@ -4,7 +4,8 @@
   "description": "A Node.js starter for the Serverless Framework with async/await and unit test support",
   "main": "src/handler.ts",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "commit": "npx git-cz"
   },
   "author": "",
   "license": "MIT",
