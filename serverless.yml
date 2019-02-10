@@ -41,39 +41,42 @@ functions:
     handler: src/create.main
     events:
       - http:
-        path: routines
-        method: post
-        cors: true
-        authorizer: aws_iam
+          path: routines
+          method: post
+          cors: true
+          authorizer: aws_iam
   get:
     handler: src/get.main
     events:
       - http:
-        path: routines/{id}
-        method: get
-        cors: true
-        authorizer: aws_iam
+          path: routines/{id}
+          method: get
+          cors: true
+          authorizer: aws_iam
   list:
     handler: src/list.main
     events:
       - http:
-        path: routines
-        method: get
-        cors: true
-        authorizer: aws_iam
+          path: routines
+          method: get
+          cors: true
+          authorizer: aws_iam
   update:
     handler: src/update.main
     events:
       - http:
-        path: routines/{id}
-        method: put
-        cors: true
-        authorizer: aws_iam
+          path: routines/{id}
+          method: put
+          cors: true
+          authorizer: aws_iam
   delete:
     handler: src/delete.main
     events:
       - http:
-        path: routines/{id}
-        method: delete
-        cors: true
-        authorizer: aws_iam
+          path: routines/{id}
+          method: delete
+          cors: true
+          authorizer: aws_iam
+
+resources:
+  - ${file(src/resources/apiGatewayErrors.yml)}
