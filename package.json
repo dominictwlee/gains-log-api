@@ -5,7 +5,8 @@
   "main": "src/handler.ts",
   "scripts": {
     "test": "jest",
-    "commit": "npx git-cz"
+    "commit": "npx git-cz",
+    "lint": "tslint -c tslint.json 'src/**/*.ts'"
   },
   "author": "",
   "license": "MIT",

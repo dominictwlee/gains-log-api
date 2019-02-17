@@ -37,40 +37,40 @@ provider:
       Resource: 'arn:aws:dynamodb:eu-west-2:828782788777:*'
 
 functions:
-  create:
-    handler: src/create.main
+  createRoutine:
+    handler: src/routines/createRoutine.main
     events:
       - http:
           path: routines
           method: post
           cors: true
           authorizer: aws_iam
-  get:
-    handler: src/get.main
+  getRoutine:
+    handler: src/routines/getRoutine.main
     events:
       - http:
           path: routines/{id}
           method: get
           cors: true
           authorizer: aws_iam
-  list:
-    handler: src/list.main
+  listRoutines:
+    handler: src/routines/listRoutines.main
     events:
       - http:
           path: routines
           method: get
           cors: true
           authorizer: aws_iam
-  update:
-    handler: src/update.main
+  updateRoutine:
+    handler: src/routines/updateRoutine.main
     events:
       - http:
           path: routines/{id}
           method: put
           cors: true
           authorizer: aws_iam
-  delete:
-    handler: src/delete.main
+  deleteRoutine:
+    handler: src/routines/deleteRoutine.main
     events:
       - http:
           path: routines/{id}

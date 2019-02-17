@@ -1,6 +1,8 @@
 import { APIGatewayProxyEvent } from 'aws-lambda';
-import * as dynamoDbLib from './libs/dyamoDbLib';
-import { success, failure } from './libs/responseLib';
+import { success, failure } from '../helpers/responseLib';
+import { DynamoDB } from 'aws-sdk';
+
+const dynamoDb = new DynamoDB.DocumentClient();
 
 export async function main(event: APIGatewayProxyEvent, context) {
   console.log(event, '[EVENT OBJECT]');
@@ -20,7 +22,7 @@ export async function main(event: APIGatewayProxyEvent, context) {
   };
 
   try {
-    const result = await dynamoDbLib.call('update', params);
+    const result = await dynamoDb.update(params).promise();
     console.log(result);
     return success({ status: true });
   } catch (e) {
