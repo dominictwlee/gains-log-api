@@ -5,6 +5,7 @@ service: gains-log-api
 plugins:
   - serverless-webpack
   - serverless-offline
+  - serverless-pseudo-parameters
 
 # serverless-webpack configuration
 # Enable auto-packing of external modules
@@ -34,7 +35,7 @@ provider:
         - dynamodb:PutItem
         - dynamodb:UpdateItem
         - dynamodb:DeleteItem
-      Resource: 'arn:aws:dynamodb:eu-west-2:828782788777:*'
+      Resource: '#{exerciseRoutinesDynamoDbTable.Arn}'
 
 functions:
   createRoutine:
@@ -80,3 +81,6 @@ functions:
 
 resources:
   - ${file(src/resources/apiGatewayErrors.yml)}
+  - ${file(src/resources/dynamodb.yml)}
+  - ${file(src/resources/cognitoUserPool.yml)}
+  - ${file(src/resources/cognitoIdentityPool.yml)}

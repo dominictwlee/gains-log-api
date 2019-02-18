@@ -1,0 +1,23 @@
+Resources:
+  gainsLogUserPool:
+    Type: AWS::Cognito::UserPool
+    Properties:
+      UsernameAttributes:
+        - email
+      AutoVerifiedAttributes:
+        - email
+  gainsLogUserPoolClient:
+    Type: AWS::Cognito::UserPoolClient
+    Properties:
+      UserPoolId:
+        Ref: gainsLogUserPool
+      ExplicitAuthFlows:
+        - ADMIN_NO_SRP_AUTH
+      GenerateSecret: false
+Outputs:
+  UserPoolId:
+    Value:
+      Ref: gainsLogUserPool
+  UserPoolClientId:
+    Value:
+      Ref: gainsLogUserPoolClient

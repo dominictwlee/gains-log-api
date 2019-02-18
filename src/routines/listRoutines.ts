@@ -16,7 +16,7 @@ export async function main(event: APIGatewayProxyEvent) {
   try {
     const result = await dynamoDb.query(params).promise();
     if (!result.Items) {
-      throw new Error('No items found');
+      return success({ message: 'No Items' });
     }
     return success(result.Items);
   } catch (e) {
